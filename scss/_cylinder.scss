@@ -1,0 +1,192 @@
+.container {
+  width: 30vw;
+  height: calc(12vh + 17vw);
+  min-height: 13rem;
+  perspective: 1500px;
+  margin: calc(5rem + 7vw) auto 7vw;
+
+  transition: 0.3s ease-out;
+  transition-property: min-height, perspective;
+}
+
+.cylinder {
+  width: 100%;
+  height: 100%;
+  margin: 0 auto;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.5s ease;
+}
+
+.face {
+  --translate-z: 40vw;
+
+  display: grid;
+  align-content: start;
+  grid-template-rows: 1fr auto auto;
+  padding: 0.5rem;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  opacity: 0.9;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  text-align: center;
+  background: center 1rem no-repeat;
+  background-size: contain;
+  border: 3px solid;
+  border-radius: 0.5rem;
+  transition: opacity 0.3s ease-out, background-color 0.3s ease-out;
+
+  &:hover {
+    opacity: 1;
+    cursor: pointer;
+  }
+
+  .img {
+    max-height: 97%;
+    overflow: hidden;
+
+    img {
+      border-radius: 0.3rem;
+      width: 100%;
+    }
+  }
+
+  .title {
+    font-weight: bold;
+  }
+
+  .repo {
+    a {
+      font-size: 65%;
+      margin-top: 0.5rem;
+      text-decoration: none;
+      color: #339;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}
+
+// Generate faces 1 through 8
+@for $i from 1 through 8 {
+  .face-#{$i} {
+    $angle: ($i - 1) * 45deg;
+    transform: rotateY($angle) translateZ(var(--translate-z));
+
+    $hue: 360 / 8 * ($i - 1);
+    background-color: hsla($hue, 50%, 75%, 0.9);
+    border-color: hsla($hue, 50%, 75%, 1);
+
+    &:hover {
+      background-color: hsla($hue, 60%, 70%, 1);
+    }
+  }
+}
+
+.buttons {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  justify-content: space-around;
+  margin: 3rem auto 1rem;
+  padding: 2rem;
+  text-align: center;
+
+  button {
+    background-color: #eee;
+    border: 1px solid #ddd;
+    border-radius: 0.4rem;
+    color: #666;
+    padding: 0.75rem 2rem;
+    font-size: 1.5rem;
+    transition: background-color 0.2s;
+
+    &:hover {
+      background-color: #ddd;
+    }
+    &:active {
+      background-color: #ccc;
+    }
+  }
+}
+
+.current-img {
+  opacity: 0;
+  overflow-y: scroll;
+  padding: 1.75rem 2rem 3rem;
+  pointer-events: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: calc(100vh - 2rem);
+  transition: opacity 0.3s ease-out 0.1s;
+
+  &.show {
+    pointer-events: all;
+    opacity: 1;
+  }
+
+  .close {
+    background-color: rgba(200, 0, 0, 0.9);
+    border: 0;
+    border-radius: 0.4rem;
+    color: #fff;
+    font-size: 1.25rem;
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+    padding: 0.5rem;
+    line-height: 0.5;
+    transition: background-color 0.3s ease-out;
+    z-index: 99;
+
+    &:hover {
+      background-color: rgba(180, 0, 0, 0.9);
+    }
+  }
+
+  .face {
+    background-color: rgba(240, 240, 240, 1);
+    height: auto;
+    min-height: calc(100% - 3rem);
+    width: calc(100% - 4rem);
+    cursor: default;
+    font-size: 1.5rem;
+    opacity: 1;
+    transform: none;
+
+    .img {
+      max-height: none;
+      overflow: visible;
+      margin-bottom: 3rem;
+
+      img {
+        max-width: 1200px;
+      }
+    }
+  }
+}
+
+@media (min-width: 768px) {
+  .container {
+    width: 30vw;
+    height: calc(12vh + 17vw);
+    min-height: 20rem;
+  }
+}
+
+@media (min-width: 1200px) {
+  .container {
+    perspective: 100vw;
+  }
+  .cylinder {
+    .face {
+      --translate-z: 38vw;
+    }
+  }
+}
