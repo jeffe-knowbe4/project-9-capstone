@@ -134,13 +134,19 @@
   background-color: hsl(315, 60%, 70%);
 }
 
+.buttons-info {
+  color: #999;
+  margin-top: 10rem;
+}
+
 .buttons {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 1rem;
   justify-content: space-around;
-  margin: 3rem auto 1rem;
-  padding: 2rem;
+  margin: 0 auto 1rem;
+  padding: 0.5rem 2rem;
+  width: 75vw;
   text-align: center;
 }
 .buttons button {
@@ -287,9 +293,9 @@ section {
   display: none;
   opacity: 0;
   padding: 0 1.5rem 2rem;
-  transition: opacity 0.3s ease-out;
+  transition: opacity 0.2s ease-out;
 }
-section.active {
+section.display {
   display: block;
 }
 section.show {
@@ -300,12 +306,16 @@ section h2 {
   color: rgb(95, 230, 95);
   font-family: monospace;
   font-size: 1.2rem;
-  margin: 0.5rem -1.5rem;
+  margin: 0.5rem 0;
   padding: 0.25rem 1rem;
+  position: absolute;
+  left: 0;
+  top: 5.25rem;
+  width: 100%;
 }
 section h2::before {
   content: ">$ ./";
-  margin-right: 0rem;
+  margin-left: 0.5rem;
 }
 section h2::after {
   content: "_";
@@ -320,6 +330,14 @@ section h2::after {
     opacity: 0;
   }
 }
+#about,
+#contact {
+  font-size: 1.25rem;
+  margin: 0 auto;
+  max-width: 80rem;
+  padding-top: 3rem;
+}
+
 .contacts {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -327,7 +345,7 @@ section h2::after {
   text-align: center;
 }
 .contacts img {
-  height: 3rem;
+  height: 5rem;
 }
 
 @media (min-width: 768px) {
@@ -344,6 +362,15 @@ section h2::after {
   nav ul {
     gap: 1rem;
   }
+  section h2 {
+    top: 3.5rem;
+  }
+  .contacts img {
+    height: 6rem;
+  }
+}
+.text-center {
+  text-align: center;
 }
 
 /*# sourceMappingURL=app.css.map */

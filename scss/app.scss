@@ -65,9 +65,9 @@ section {
   display: none;
   opacity: 0;
   padding: 0 1.5rem 2rem;
-  transition: opacity 0.3s ease-out;
+  transition: opacity 0.2s ease-out;
 
-  &.active {
+  &.display {
     display: block;
   }
   &.show {
@@ -79,12 +79,16 @@ section {
     color: rgb(95, 230, 95);
     font-family: monospace;
     font-size: 1.2rem;
-    margin: 0.5rem -1.5rem;
+    margin: 0.5rem 0;
     padding: 0.25rem 1rem;
+    position: absolute;
+    left: 0;
+    top: 5.25rem;
+    width: 100%;
 
     &::before {
       content: ">$ ./";
-      margin-right: 0rem;
+      margin-left: 0.5rem;
     }
     &::after {
       content: "_";
@@ -102,6 +106,14 @@ section {
   }
 }
 
+#about,
+#contact {
+  font-size: 1.25rem;
+  margin: 0 auto;
+  max-width: 80rem;
+  padding-top: 3rem;
+}
+
 .contacts {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -109,7 +121,7 @@ section {
   text-align: center;
 
   img {
-    height: 3rem;
+    height: 5rem;
   }
 }
 
@@ -129,4 +141,18 @@ section {
       gap: 1rem;
     }
   }
+  section {
+    h2 {
+      top: 3.5rem;
+    }
+  }
+  .contacts {
+    img {
+      height: 6rem;
+    }
+  }
+}
+
+.text-center {
+  text-align: center;
 }

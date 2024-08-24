@@ -46,6 +46,7 @@ function closeCurrent() {
 
 class Nav {
   constructor() {
+    this.hiding = false;
     this.links = [...$$("nav a")];
 
     this.links.forEach((a) => {
@@ -58,7 +59,9 @@ class Nav {
 
   init() {
     const links = this.links;
-    links[0].click();
+    let firstLink = location.hash ? links.find((a) => a.href.includes(location.hash)) : links[0];
+
+    firstLink.click();
 
     // maintains browser back button functionality
     window.addEventListener("popstate", function (e) {
@@ -69,21 +72,22 @@ class Nav {
   hide(a) {
     if (!a) return;
 
+    this.hiding = true;
     a.classList.remove("active");
+
     const target = $(`#${a.href.split("#")[1]}`);
     target.classList.remove("show");
     setTimeout(() => {
-      target.classList.remove("active");
-    }, 300);
+      target.classList.remove("display");
+      this.hiding = false;
+    }, 200);
   }
 
   show(a) {
     a.classList.add("active");
     const target = $(`#${a.href.split("#")[1]}`);
-    target.classList.add("show");
-    setTimeout(() => {
-      target.classList.add("active");
-    }, 300);
+    setTimeout(() => target.classList.add("show"), this.hiding ? 400 : 200);
+    setTimeout(() => target.classList.add("display"), this.hiding ? 200 : 10);
   }
 }
 

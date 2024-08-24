@@ -87,13 +87,19 @@
   }
 }
 
+.buttons-info {
+  color: #999;
+  margin-top: 10rem;
+}
+
 .buttons {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 1rem;
   justify-content: space-around;
-  margin: 3rem auto 1rem;
-  padding: 2rem;
+  margin: 0 auto 1rem;
+  padding: 0.5rem 2rem;
+  width: 75vw;
   text-align: center;
 
   button {
