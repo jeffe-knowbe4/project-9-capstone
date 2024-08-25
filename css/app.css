@@ -168,7 +168,7 @@
 .current-img {
   opacity: 0;
   overflow-y: scroll;
-  padding: 1.75rem 2rem 3rem;
+  padding: 1rem;
   pointer-events: none;
   position: absolute;
   top: 0;
@@ -186,12 +186,12 @@
   border: 0;
   border-radius: 0.4rem;
   color: #fff;
-  font-size: 1.25rem;
+  font-size: 2rem;
   position: fixed;
-  top: 1rem;
-  right: 1rem;
-  padding: 0.5rem;
-  line-height: 0.5;
+  top: 0.5rem;
+  right: 0.5rem;
+  padding: 0.5rem 0.6rem 0.65rem;
+  line-height: 0.6;
   transition: background-color 0.3s ease-out;
   z-index: 99;
 }
@@ -202,10 +202,11 @@
   background-color: rgb(240, 240, 240);
   height: auto;
   min-height: calc(100% - 3rem);
-  width: calc(100% - 4rem);
+  width: calc(100% - 2rem);
   cursor: default;
   font-size: 1.5rem;
   opacity: 1;
+  padding: 1rem;
   transform: none;
 }
 .current-img .face .img {
@@ -214,7 +215,7 @@
   margin-bottom: 3rem;
 }
 .current-img .face .img img {
-  max-width: 1600px;
+  max-width: 1728px;
 }
 
 @media (min-width: 768px) {
