@@ -1,0 +1,28 @@
+body.dark {
+  --text-color: #ddd;
+  --light-text-color: #ccc;
+  background-color: #333;
+
+  header {
+    background-color: darken(#393, 20%);
+  }
+
+  .face {
+    .title {
+      color: #666;
+    }
+  }
+
+  .buttons {
+    button {
+      background-color: #777;
+      color: #ccc;
+    }
+  }
+
+  .contacts {
+    img {
+      filter: invert(80%);
+    }
+  }
+}

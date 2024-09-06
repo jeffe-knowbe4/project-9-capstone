@@ -44,6 +44,16 @@ function closeCurrent() {
   }
 }
 
+if (window.localStorage.getItem("dark") === "true") {
+  $("body").classList.add("dark");
+}
+
+$("button.dark-mode").addEventListener("click", (e) => {
+  $("body").classList.toggle("dark");
+  const isDark = $("body").classList.contains("dark");
+  window.localStorage.setItem("dark", isDark);
+});
+
 class Nav {
   constructor() {
     this.hiding = false;

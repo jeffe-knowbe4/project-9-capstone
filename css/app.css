@@ -151,9 +151,9 @@
 }
 .buttons button {
   background-color: #eee;
-  border: 1px solid #ddd;
+  border: 1px solid rgba(var(--text-color-hex), 0.25);
   border-radius: 0.4rem;
-  color: #666;
+  color: #777;
   padding: 0.75rem 2rem;
   font-size: 1.5rem;
   transition: background-color 0.2s;
@@ -238,18 +238,23 @@
 }
 
 body {
-  color: #666;
+  --text-color: #666;
+  --text-color-hex: 102, 102, 102;
+  --light-text-color: #fff;
+  --light-text-color-hex: 255, 255, 255;
+  color: var(--text-color);
   font-family: sans-serif;
   font-size: 100%;
   margin: 0;
   padding: 0;
   display: grid;
   grid-template-rows: auto 1fr auto;
+  transition: background-color 200ms ease-out, color 200ms ease-out;
 }
 
 header {
   background-color: #393;
-  color: #fff;
+  color: var(--light-text-color);
   display: grid;
   grid-template-rows: 1fr 1fr;
   align-items: center;
@@ -267,27 +272,39 @@ nav {
 }
 nav ul {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(3, 1fr) auto;
   font-size: 0.9rem;
   list-style-type: none;
   margin: 0;
   padding: 0;
   text-align: center;
+  align-items: center;
 }
 nav a {
   border-bottom: 1px solid transparent;
-  color: #fff;
+  color: var(--light-text-color);
   padding: 0.25rem 0.5rem 0.2rem;
   text-decoration: none;
   text-transform: uppercase;
   transition: border-color 0.3s ease-out;
 }
 nav a:hover {
-  border-color: #fff;
+  border-color: var(--light-text-color);
 }
 nav a.active {
   border-radius: 0.3rem;
-  background-color: rgba(255, 255, 255, 0.25);
+  background-color: rgba(var(--light-text-color-hex), 0.25);
+}
+nav button.dark-mode {
+  background-color: transparent;
+  border: 0;
+  padding: 0;
+}
+nav button.dark-mode svg {
+  width: 1.5rem;
+}
+nav button.dark-mode svg path {
+  fill: var(--light-text-color);
 }
 
 section {
@@ -372,6 +389,25 @@ section h2::after {
 }
 .text-center {
   text-align: center;
+}
+
+body.dark {
+  --text-color: #ddd;
+  --light-text-color: #ccc;
+  background-color: #333;
+}
+body.dark header {
+  background-color: #1a4d1a;
+}
+body.dark .face .title {
+  color: #666;
+}
+body.dark .buttons button {
+  background-color: #777;
+  color: #ccc;
+}
+body.dark .contacts img {
+  filter: invert(80%);
 }
 
 /*# sourceMappingURL=app.css.map */

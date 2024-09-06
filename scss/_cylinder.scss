@@ -77,7 +77,7 @@
     $angle: ($i - 1) * 45deg;
     transform: rotateY($angle) translateZ(var(--translate-z));
 
-    $hue: 360 / 8 * ($i - 1);
+    $hue: calc(360 / 8) * ($i - 1);
     background-color: hsla($hue, 50%, 75%, 0.9);
     border-color: hsla($hue, 50%, 75%, 1);
 
@@ -104,9 +104,9 @@
 
   button {
     background-color: #eee;
-    border: 1px solid #ddd;
+    border: 1px solid rgba(var(--text-color-hex), 0.25);
     border-radius: 0.4rem;
-    color: #666;
+    color: #777;
     padding: 0.75rem 2rem;
     font-size: 1.5rem;
     transition: background-color 0.2s;
