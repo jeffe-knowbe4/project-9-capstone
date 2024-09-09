@@ -16,6 +16,11 @@ nextBtn.addEventListener("click", () => rotateCylinder(-1));
 
 // click to show as current
 $(".cylinder").addEventListener("click", (e) => {
+  // don't open details if just clicking the link
+  if (e.target.tagName === "A") {
+    return;
+  }
+
   const el = e.target.closest(".face");
   if (el) {
     const copy = el.cloneNode(true);
